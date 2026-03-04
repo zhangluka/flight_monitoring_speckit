@@ -31,7 +31,10 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- **技术栈**：前端是否采用 Next.js，UI 是否基于 shadcn/ui。
+- **数据源**：航班/价格是否仅使用开放可调用的第三方 API，且已在研究或规格中说明来源与合规性。
+- **测试**：是否规划单元测试覆盖关键逻辑，E2E 是否仅用于少量核心流程。
+- **文档与注释**：文档是否使用中文；代码是否仅对关键逻辑添加注释。
 
 ## Project Structure
 

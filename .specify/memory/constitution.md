@@ -1,50 +1,53 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: (none) → 1.0.0
+- Modified principles: N/A (initial fill)
+- Added sections: 全部为首次填入
+- Removed sections: 无
+- Templates: plan-template.md ✅ Constitution Check 已对齐；spec-template.md ✅ 无强制节变更；tasks-template.md ✅ 任务类型已兼容（单元测试/E2E）
+- Follow-up TODOs: 无
+-->
 
-## Core Principles
+# 航班监控（国内航班与价格查询）宪章
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+## 核心原则
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### I. 技术栈与 UI 基础
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+前端 MUST 使用 Next.js 框架；UI 组件以 [shadcn/ui](https://ui.shadcn.com/) 为基础，可定制、扩展与二次封装。理由：统一技术栈与设计语言，便于维护与一致体验。
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. 数据源与集成
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+航班与价格信息 MUST 通过互联网上开放可调用的第三方 API 获取；不得依赖未公开或私有接口。选型时须在规格/研究中记录 API 来源、协议与合规性。理由：保证数据来源合法、可审计、可替换。
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### III. 测试策略
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- 单元测试 MUST 覆盖核心逻辑与关键路径；新增功能须配有对应单元测试。
+- E2E 测试保持「少量」：覆盖主要用户流程（如查询航班、查看价格），不追求全量页面或全场景。理由：在质量与投入之间取得平衡，优先保证核心行为可回归。
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### IV. 文档语言
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+项目文档（规格、计划、README、quickstart、接口说明等）MUST 使用中文撰写。理由：团队与协作以中文为主，降低理解成本。
+
+### V. 代码注释
+
+代码中仅对关键逻辑、非显而易见的分支与算法添加必要注释；避免逐行或冗余注释。理由：提高可读性同时保持代码即文档，减少噪音。
+
+## 技术约束
+
+- **前端**：Next.js，UI 基础为 shadcn/ui。
+- **数据**：仅使用开放可调用的第三方 API（航班/价格等）；API 选型与变更须在规格或研究中说明。
+- **测试**：单元测试必写；E2E 仅覆盖少量核心流程。
+- **文档与注释**：文档中文；代码注释限于关键逻辑。
+
+## 开发与质量门禁
+
+- 新功能或规格须通过宪章符合性检查（技术栈、数据源、测试与文档/注释要求）。
+- PR/评审须确认：单元测试覆盖关键逻辑、E2E 仅用于约定之核心流程、文档为中文、无违规私有数据源。
+- 运行时与开发指引以 `docs/SPEC_KIT_CURSOR_GUIDE.md` 及各 spec 下 quickstart 为准。
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+本宪章优先于项目内其他约定；修订须更新本文档、递增版本号并同步相关模板与指引。所有 PR 与评审须验证符合上述原则与约束；若存在例外须在计划或规格中明确记录并说明理由。
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-03-04 | **Last Amended**: 2025-03-04

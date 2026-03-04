@@ -1,0 +1,36 @@
+---
+description: Project Development Guidelines
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# flight_monitoring_speckit Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2026-03-04
+
+## Active Technologies
+
+- TypeScript 5.x（Node 20+）、React 18+ + Next.js 14+ (App Router)、shadcn/ui、Tailwind CSS (001-flight-search)
+
+## Project Structure
+
+```text
+backend/
+frontend/
+tests/
+```
+
+## Commands
+
+npm test && npm run lint
+
+## Code Style
+
+TypeScript 5.x（Node 20+）、React 18+: Follow standard conventions
+
+## Recent Changes
+
+- 001-flight-search: Added TypeScript 5.x（Node 20+）、React 18+ + Next.js 14+ (App Router)、shadcn/ui、Tailwind CSS
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
