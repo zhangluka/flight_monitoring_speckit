@@ -55,7 +55,7 @@ uvx --from git+https://github.com/github/spec-kit.git specify init . --ai cursor
 cd /path/to/flight_monitoring_speckit
 
 # 在当前目录初始化，并选择 Cursor 作为 AI 环境，以实际版本为准
-specify init . --ai cursor
+specify init . --ai cursor-agent
 
 ```
 
