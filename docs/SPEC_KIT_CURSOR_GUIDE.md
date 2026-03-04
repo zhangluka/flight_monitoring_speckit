@@ -44,7 +44,7 @@ specify check
 未安装 uv 时，可一次性运行（不持久安装）：
 
 ```bash
-uvx --from git+https://github.com/github/spec-kit.git specify init . --ai cursor
+uvx --from git+https://github.com/github/spec-kit.git specify init . --ai cursor-agent
 ```
 
 ### 3. 在现有工程中初始化 Spec-kit（本项目适用）
@@ -54,11 +54,9 @@ uvx --from git+https://github.com/github/spec-kit.git specify init . --ai cursor
 ```bash
 cd /path/to/flight_monitoring_speckit
 
-# 在当前目录初始化，并选择 Cursor 作为 AI 环境
+# 在当前目录初始化，并选择 Cursor 作为 AI 环境，以实际版本为准
 specify init . --ai cursor
 
-# 或使用 --here 等价写法
-specify init --here --ai cursor
 ```
 
 执行后会：
