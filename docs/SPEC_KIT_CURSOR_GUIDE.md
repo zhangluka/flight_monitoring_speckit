@@ -202,7 +202,7 @@ chmod +x scripts/*.sh
 
    ```bash
    cd /Users/bobby/Projects/Github/zhangluka/flight_monitoring_speckit
-   specify init --here --ai cursor
+   specify init --here --ai cursor-agent
    ```
 
 2. **运行 `/constitution`**  
