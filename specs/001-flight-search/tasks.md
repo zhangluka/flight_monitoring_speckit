@@ -24,10 +24,10 @@
 
 **Purpose**: 初始化 Next.js 项目与基础结构
 
-- [ ] T001 按 plan.md 创建项目目录结构（app/、components/、lib/、tests/unit/、tests/e2e/）
-- [ ] T002 初始化 Next.js 14+ 项目（TypeScript、App Router、Tailwind），安装依赖；含 app/layout.tsx，按需调整全局布局
-- [ ] T003 [P] 配置 ESLint 与 Prettier（或项目既定 lint/format 工具）
-- [ ] T004 [P] 引入并配置 shadcn/ui，安装本功能所需基础组件（如 Button、Input、Card、Skeleton）
+- [x] T001 按 plan.md 创建项目目录结构（app/、components/、lib/、tests/unit/、tests/e2e/）
+- [x] T002 初始化 Next.js 14+ 项目（TypeScript、App Router、Tailwind），安装依赖；含 app/layout.tsx，按需调整全局布局
+- [x] T003 [P] 配置 ESLint 与 Prettier（或项目既定 lint/format 工具）
+- [x] T004 [P] 引入并配置 shadcn/ui，安装本功能所需基础组件（如 Button、Input、Card、Skeleton）
 
 **Checkpoint**: 项目可 `npm run dev` 与 `npm run build`，shadcn 可用
 
@@ -39,11 +39,11 @@
 
 **⚠️ CRITICAL**: 未完成前不得开始用户故事实现
 
-- [ ] T005 [P] 在 lib/types/flight.ts 中定义 SearchParams、Flight、Cabin 类型（与 data-model.md、contracts 一致）
-- [ ] T006 [P] 在 lib/validation/search-params.ts 中实现搜索参数校验：必填、origin≠destination、date≥今日；并导出校验函数
-- [ ] T007 在 app/api/flights/search/route.ts 实现 BFF 路由骨架：接收 origin/destination/date，校验后转发至第三方 API 或 Mock，按 contracts 返回 { flights: [] } 或错误 JSON
-- [ ] T008 在 lib/api/flights.ts 实现前端调用 BFF 的客户端（如 searchFlights(params)），返回类型与 contracts 一致
-- [ ] T009 配置 Jest + React Testing Library；在 tests/unit 下建立 validation、lib、components 子目录
+- [x] T005 [P] 在 lib/types/flight.ts 中定义 SearchParams、Flight、Cabin 类型（与 data-model.md、contracts 一致）
+- [x] T006 [P] 在 lib/validation/search-params.ts 中实现搜索参数校验：必填、origin≠destination、date≥今日；并导出校验函数
+- [x] T007 在 app/api/flights/search/route.ts 实现 BFF 路由骨架：接收 origin/destination/date，校验后转发至第三方 API 或 Mock，按 contracts 返回 { flights: [] } 或错误 JSON
+- [x] T008 在 lib/api/flights.ts 实现前端调用 BFF 的客户端（如 searchFlights(params)），返回类型与 contracts 一致
+- [x] T009 配置 Jest + React Testing Library；在 tests/unit 下建立 validation、lib、components 子目录
 
 **Checkpoint**: 类型与校验可用、BFF 可调通（可用 Mock）、前端可调用 BFF、单测环境就绪
 
@@ -57,16 +57,16 @@
 
 ### Tests for User Story 1
 
-- [ ] T010 [P] [US1] 在 tests/unit/validation/search-params.test.ts 为 lib/validation/search-params.ts 编写单元测试（必填、出发地≠目的地、日期非过去）
-- [ ] T011 [P] [US1] 在 tests/unit/lib/flights.test.ts 为 lib/api/flights.ts 编写单元测试（请求参数与响应形状、错误处理）
-- [ ] T012 [P] [US1] 在 tests/unit/components/flight-list.test.tsx 为航班列表组件编写单元测试（有数据时渲染字段、空列表不报错）
+- [x] T010 [P] [US1] 在 tests/unit/validation/search-params.test.ts 为 lib/validation/search-params.ts 编写单元测试（必填、出发地≠目的地、日期非过去）
+- [x] T011 [P] [US1] 在 tests/unit/lib/flights.test.ts 为 lib/api/flights.ts 编写单元测试（请求参数与响应形状、错误处理）
+- [x] T012 [P] [US1] 在 tests/unit/components/flight-list.test.tsx 为航班列表组件编写单元测试（有数据时渲染字段、空列表不报错）
 
 ### Implementation for User Story 1
 
-- [ ] T013 [US1] 在 components/flight-search-form.tsx 实现搜索表单：出发地、目的地、日期输入与提交，调用 lib/api/flights.ts 的 searchFlights
-- [ ] T014 [US1] 在 components/flight-list.tsx 实现航班列表展示：接收 flights 数组，渲染航班号、起飞时间、降落时间、舱位与价格（至少一种舱位）
-- [ ] T015 [US1] 在 app/page.tsx 集成表单与列表：表单提交后请求 BFF，将结果传入 flight-list；无结果时先显示空列表（无结果提示在 US2）
-- [ ] T016 [US1] 在 BFF app/api/flights/search/route.ts 中对接真实第三方 API 或稳定 Mock，按 contracts 归一化响应（flights[].flightNumber, departureTime, arrivalTime, origin, destination, cabins）；API 选型与环境变量见 research.md、quickstart.md
+- [x] T013 [US1] 在 components/flight-search-form.tsx 实现搜索表单：出发地、目的地、日期输入与提交，调用 lib/api/flights.ts 的 searchFlights
+- [x] T014 [US1] 在 components/flight-list.tsx 实现航班列表展示：接收 flights 数组，渲染航班号、起飞时间、降落时间、舱位与价格（至少一种舱位）
+- [x] T015 [US1] 在 app/page.tsx 集成表单与列表：表单提交后请求 BFF，将结果传入 flight-list；无结果时先显示空列表（无结果提示在 US2）
+- [x] T016 [US1] 在 BFF app/api/flights/search/route.ts 中对接真实第三方 API 或稳定 Mock，按 contracts 归一化响应（flights[].flightNumber, departureTime, arrivalTime, origin, destination, cabins）；API 选型与环境变量见 research.md、quickstart.md
 
 **Checkpoint**: 用户可搜索并看到航班列表，单测通过
 
@@ -80,13 +80,13 @@
 
 ### Tests for User Story 2
 
-- [ ] T017 [P] [US2] 在 tests/unit/components/flight-list.test.tsx 中增加加载中、无结果、错误态的展示用例（如 loading、empty、error 状态下的文案或占位）
+- [x] T017 [P] [US2] 在 tests/unit/components/flight-list.test.tsx 中增加加载中、无结果、错误态的展示用例（如 loading、empty、error 状态下的文案或占位）
 
 ### Implementation for User Story 2
 
-- [ ] T018 [US2] 在 components/flight-list.tsx 或上层增加 loading 状态：请求进行中显示加载指示器或「加载中」文案
-- [ ] T019 [US2] 在 components/flight-list.tsx 或上层增加空结果态：flights 为空且非错误时显示「暂无符合条件的航班」等无结果提示
-- [ ] T020 [US2] 在 components/flight-list.tsx 或上层增加错误态：BFF 或网络错误时显示用户可理解的错误提示，不暴露技术堆栈
+- [x] T018 [US2] 在 components/flight-list.tsx 或上层增加 loading 状态：请求进行中显示加载指示器或「加载中」文案
+- [x] T019 [US2] 在 components/flight-list.tsx 或上层增加空结果态：flights 为空且非错误时显示「暂无符合条件的航班」等无结果提示
+- [x] T020 [US2] 在 components/flight-list.tsx 或上层增加错误态：BFF 或网络错误时显示用户可理解的错误提示，不暴露技术堆栈
 
 **Checkpoint**: 加载中、无结果、错误三种状态可区分且符合规格
 
@@ -100,13 +100,13 @@
 
 ### Tests for User Story 3
 
-- [ ] T021 [P] [US3] 在 tests/unit/components/flight-list.test.tsx 中增加格式与一致性用例（时间、价格展示格式统一）
+- [x] T021 [P] [US3] 在 tests/unit/components/flight-list.test.tsx 中增加格式与一致性用例（时间、价格展示格式统一）
 
 ### Implementation for User Story 3
 
-- [ ] T022 [US3] 在 components/flight-list.tsx 中统一时间展示（如北京时间、HH:mm 或 YYYY-MM-DD HH:mm），价格统一为人民币格式
-- [ ] T023 [US3] 在 components/flight-list.tsx 中保证列表列对齐或统一布局（使用 shadcn Table/Card 等），便于扫读与比较
-- [ ] T024 [US3] 在 components/flight-list.tsx 或页面层实现分页或虚拟滚动（当结果条数超过阈值时），满足 FR-006 与 Edge Cases，避免首屏卡顿
+- [x] T022 [US3] 在 components/flight-list.tsx 中统一时间展示（如北京时间、HH:mm 或 YYYY-MM-DD HH:mm），价格统一为人民币格式
+- [x] T023 [US3] 在 components/flight-list.tsx 中保证列表列对齐或统一布局（使用 shadcn Table/Card 等），便于扫读与比较
+- [x] T024 [US3] 在 components/flight-list.tsx 或页面层实现分页或虚拟滚动（当结果条数超过阈值时），满足 FR-006 与 Edge Cases，避免首屏卡顿
 
 **Checkpoint**: 列表格式统一、可读性满足 SC-002/SC-003；大量结果时分页/虚拟滚动可用
 
@@ -116,10 +116,10 @@
 
 **Purpose**: E2E、表单校验与文档
 
-- [ ] T025 在表单提交前增加前端校验：必填、出发地≠目的地、日期非过去；不通过时提示且不发起请求（FR-005）
-- [ ] T026 [P] 在 tests/e2e/flight-search.spec.ts 编写少量 E2E：输入条件 → 提交 → 出现结果列表或加载/无结果/错误态（覆盖主流程）
-- [ ] T027 更新 README 或 quickstart：运行方式、环境变量（FLIGHT_API_KEY 等）、测试命令
-- [ ] T028 按 quickstart.md 执行一次本地运行与单测/E2E 验证
+- [x] T025 在表单提交前增加前端校验：必填、出发地≠目的地、日期非过去；不通过时提示且不发起请求（FR-005）
+- [x] T026 [P] 在 tests/e2e/flight-search.spec.ts 编写少量 E2E：输入条件 → 提交 → 出现结果列表或加载/无结果/错误态（覆盖主流程）
+- [x] T027 更新 README 或 quickstart：运行方式、环境变量（FLIGHT_API_KEY 等）、测试命令
+- [x] T028 按 quickstart.md 执行一次本地运行与单测/E2E 验证
 
 ---
 
