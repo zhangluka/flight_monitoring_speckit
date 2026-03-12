@@ -20,7 +20,7 @@ export default function Home() {
         : "idle";
 
   return (
-    <main className="min-h-screen p-8">
+    <main id="main-content" className="min-h-screen p-8">
       <h1 className="text-2xl font-bold">国内航班与价格查询</h1>
       <div className="mt-6">
         <FlightSearchForm
@@ -29,7 +29,7 @@ export default function Home() {
           onError={setError}
         />
       </div>
-      <section className="mt-8">
+      <section className="mt-8" aria-live="polite" aria-atomic="true">
         <h2 className="mb-4 text-lg font-semibold">搜索结果</h2>
         <FlightList
           flights={flights}

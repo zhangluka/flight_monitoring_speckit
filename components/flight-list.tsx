@@ -27,7 +27,10 @@ function formatTime(iso: string): string {
 }
 
 function formatPrice(price: number): string {
-  return `¥${price}`;
+  return new Intl.NumberFormat("zh-CN", {
+    style: "currency",
+    currency: "CNY",
+  }).format(price);
 }
 
 export function FlightList({ flights, status, errorMessage }: FlightListProps) {
@@ -63,21 +66,30 @@ export function FlightList({ flights, status, errorMessage }: FlightListProps) {
     <div>
       <ul className="space-y-3">
         {visibleFlights.map((f, i) => (
-          <li key={`${f.flightNumber}-${i}`}>
+          <li key={`${f.flightNumber}-${i}`} className="min-w-0">
             <Card>
-              <CardHeader className="pb-2 text-sm font-medium">
-                {f.flightNumber} · {f.origin} → {f.destination}
+              <CardHeader className="min-w-0 pb-2 text-sm font-medium">
+                <span
+                  className="truncate"
+                  title={`${f.flightNumber} · ${f.origin} → ${f.destination}`}
+                >
+                  {f.flightNumber} · {f.origin} → {f.destination}
+                </span>
               </CardHeader>
               <CardContent className="text-sm">
-                <div className="grid grid-cols-2 gap-x-6 gap-y-1 max-w-2xl">
+                <div className="grid min-w-0 grid-cols-2 gap-x-6 gap-y-1 max-w-2xl">
                   <span className="font-medium text-gray-500">起飞</span>
-                  <span>{formatTime(f.departureTime)}</span>
+                  <span className="tabular-nums">
+                    {formatTime(f.departureTime)}
+                  </span>
                   <span className="font-medium text-gray-500">到达</span>
-                  <span>{formatTime(f.arrivalTime)}</span>
+                  <span className="tabular-nums">
+                    {formatTime(f.arrivalTime)}
+                  </span>
                   {f.cabins.length > 0 && (
                     <>
                       <span className="font-medium text-gray-500">舱位</span>
-                      <span>
+                      <span className="min-w-0 truncate">
                         {f.cabins[0].name} {formatPrice(f.cabins[0].price)}
                       </span>
                     </>
@@ -94,7 +106,7 @@ export function FlightList({ flights, status, errorMessage }: FlightListProps) {
             type="button"
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={currentPage <= 1}
-            className="rounded border px-3 py-1 text-sm disabled:opacity-50"
+            className="rounded border px-3 py-1 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50"
           >
             上一页
           </button>
@@ -105,7 +117,7 @@ export function FlightList({ flights, status, errorMessage }: FlightListProps) {
             type="button"
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={currentPage >= totalPages}
-            className="rounded border px-3 py-1 text-sm disabled:opacity-50"
+            className="rounded border px-3 py-1 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50"
           >
             下一页
           </button>
