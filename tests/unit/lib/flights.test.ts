@@ -18,8 +18,8 @@ describe("searchFlights", () => {
       destination: "上海",
       date: "2025-03-10",
     });
-    expect(capturedUrl).toContain("origin=北京");
-    expect(capturedUrl).toContain("destination=上海");
+    expect(decodeURIComponent(capturedUrl)).toContain("origin=北京");
+    expect(decodeURIComponent(capturedUrl)).toContain("destination=上海");
     expect(capturedUrl).toContain("date=2025-03-10");
   });
 
